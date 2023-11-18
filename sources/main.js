@@ -49,7 +49,10 @@ function dayOfTheWeek(day,month,year){
     }
     return Weekdays[date.getDay()];
 }
-
+var myInput = document.getElementById('myInput');
+myInput.addEventListener('focus',function(){
+    myInput.style.color='white';
+})
 
 function fetchWeatherData(){
     fetch(`https://api.weatherapi.com/v1/current.json?key=e26ee2f87b994c98863100552231608&q=${cityInput}`)
@@ -90,10 +93,7 @@ function fetchWeatherData(){
                 app.style.backgroundImage = `url(/image/${timeOfDay}/clear.avif)`;
                 if(timeOfDay == "day") {
                     app.style.color='white';
-                    var myInput = document.getElementById('myInput');
-                    myInput.addEventListener('focus',function(){
-                        myInput.style.color='white';
-                    })
+                  
                 }                
             } else if (//cloudy
                 code == 1003 ||
@@ -111,6 +111,10 @@ function fetchWeatherData(){
                 app.style.backgroundImage = `url(/image/${timeOfDay}/cloudy.avif)`;
                 if(timeOfDay == "day") {
                     app.style.color='black';
+                    var myInput = document.getElementById('myInput');
+                    myInput.addEventListener('focus',function(){
+                        myInput.style.color='black';
+                    })
                 }
             } else if ( //rain
 
@@ -136,20 +140,12 @@ function fetchWeatherData(){
                 app.style.backgroundImage = `url(/image/${timeOfDay}/rain.avif)`;
                 if(timeOfDay == "day") {
                     app.style.color='white';
-                    var myInput = document.getElementById('myInput');
-                    myInput.addEventListener('focus',function(){
-                        myInput.style.color='white';
-                    })
                 }  
               
             } else { //snow
                 app.style.backgroundImage = `url(/image/${timeOfDay}/snow.avif)`;
                 if(timeOfDay == "day") {
                     app.style.color='white';
-                    var myInput = document.getElementById('myInput');
-                    myInput.addEventListener('focus',function(){
-                        myInput.style.color='white';
-                    })
                 }  
             }
 
